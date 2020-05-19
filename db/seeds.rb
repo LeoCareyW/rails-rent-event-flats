@@ -36,5 +36,3 @@ newbooking.save
 
 puts "done"
 puts newflat
-
-
