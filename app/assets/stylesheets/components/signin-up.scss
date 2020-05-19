@@ -1,0 +1,44 @@
+.form-inputs {
+  color: white;
+  }
+
+.form-text {
+  .text-muted {
+  color: white;
+  }
+}
+
+.form-actions {
+  color: white;
+  text-align: center;
+  .btn {
+    color: white;
+    font-size: 20px;
+      &:hover {
+          color:grey;
+      }
+  }
+}
+
+
+h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+h6 {
+  text-align: center;
+  text-align: bottom;
+  margin-top: 50px;
+  padding: 10px;
+  color: white;
+  a {
+    color: white;
+    &:hover {
+          color:grey;
+    }
+  }
+}
+
+
