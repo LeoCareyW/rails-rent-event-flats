@@ -10,7 +10,7 @@
               <%= f.input :address %>
               <%= f.input :description %>
               <%= f.input :price %>
-              <%= f.input :photo, as: :file %>
+              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
               <label class="small">
                   <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
               </label>
