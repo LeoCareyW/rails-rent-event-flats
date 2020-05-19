@@ -1,5 +1,9 @@
 class FlatsController < ApplicationController
 
+def index
+  @flats = Flat.all
+end
+
 def new
   @flat = Flat.new
 end
@@ -9,6 +13,10 @@ def create
   @flat.save
 
   redirect_to flat_path(@flat)
+end
+
+def show
+  @flat = Flat.find(params[:id])
 end
 
 private
