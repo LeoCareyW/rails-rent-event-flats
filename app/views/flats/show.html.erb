@@ -60,10 +60,11 @@
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">Booking</h5>
-          <p class="card-text">Dates Go In Here</p>
-          <p class="card-text">Number of Guests Enered Here</p>
-          <p class="card-text">Price Calculated Here</p>
-          <a href="#" class="btn btn-primary mb-2" style="width:100%">Book</a>
+          <%= simple_form_for([@flat, Booking.new]) do |f| %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <%= f.submit class: "btn btn-primary mb-2"%>
+          <% end %>
           <h6 class="card-subtitle mb-2 text-muted">You won't be charged yet</h6>
         </div>
       </div>
