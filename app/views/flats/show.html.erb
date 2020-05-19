@@ -63,7 +63,10 @@
           <%= simple_form_for([@flat, Booking.new]) do |f| %>
             <%= f.input :start_date %>
             <%= f.input :end_date %>
-            <%= f.submit class: "btn btn-primary mb-2"%>
+            <h6 class="card-subtitle mb-2 text-muted">
+            $<%= @flat.price %> per night
+            </h6>
+            <%= f.submit class: "btn btn-primary mb-2 mx-auto"%>
           <% end %>
           <h6 class="card-subtitle mb-2 text-muted">You won't be charged yet</h6>
         </div>

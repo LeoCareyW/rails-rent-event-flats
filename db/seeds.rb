@@ -25,8 +25,8 @@ newflat = Flat.new(
   price: 10)
 
 newbooking = Booking.new(
-  start_date: 100,
-  end_date: 102)
+  start_date: Date.today,
+  end_date: Date.tomorrow)
 
 newflat.user = user1
 newbooking.flat = newflat
