@@ -23,5 +23,3 @@ newflat.save
 
 puts "done"
 puts newflat
-
-
