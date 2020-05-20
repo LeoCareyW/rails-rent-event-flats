@@ -1,0 +1,13 @@
+<div class="container mx-auto my-auto" style="width: 18rem;">
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag @booking.flat.photos[0].key, crop: :fill, class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= "Your booking at #{@booking.flat.name}" %></h5>
+      <p class="card-text"><%= "#{@booking.start_date.to_formatted_s(:short)} - #{@booking.end_date.to_formatted_s(:short)}" %></p>
+      <% number_of_days = @booking.end_date - @booking.start_date %>
+      <p class="card-text"><%= "#{number_of_days.to_i} nights @ £#{@booking.flat.price} per night" %></p>
+      <p class="card-text"><%= "£#{number_of_days.to_i * @booking.flat.price} total price" %></p>
+    </div>
+    <%= link_to "Back to All Bookings", bookings_path, class: "btn btn-primary" %>
+  </div>
+</div>
