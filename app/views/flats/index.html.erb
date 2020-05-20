@@ -1,7 +1,30 @@
-<ul>
-  <% @flats.each do |flat| %>
-    <li><%= link_to "#{flat.name}", flat_path(flat)%></li>
-  <% end %>
-</ul>
+
+
+<section class ="flat-index">
+  <div class="flat-cards"> 
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+        </button>
+        <% end %>
+      </div>
+  
+  
+    <div class="card-product">
+        <img src="https://webstockreview.net/images250_/clipart-house-blues-clue.png" />
+        <div class="card-product-infos">
+          <ul>
+          <% @flats.each do |flat| %>
+            <li><%= link_to "#{flat.name}", flat_path(flat)%></li>
+          <% end %>
+        </ul>
+          <p>Contempory house, with modern furnishings. Absolute <strong>banger</strong> of a party spot.</p>
+        </div>
+    </div>
+  </div>
+  <img class ="map-index" src="https://miro.medium.com/max/1400/1*FbzQStUzSsLChBJE9108hg.png">
+</section>
 
 
