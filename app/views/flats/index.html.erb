@@ -13,7 +13,7 @@
   
   
     <div class="card-product">
-        <img src="https://webstockreview.net/images250_/clipart-house-blues-clue.png" />
+        <img src="" />
         <div class="card-product-infos">
           <ul>
           <% @flats.each do |flat| %>
@@ -24,7 +24,11 @@
         </div>
     </div>
   </div>
-  <img class ="map-index" src="https://miro.medium.com/max/1400/1*FbzQStUzSsLChBJE9108hg.png">
+  <div class="map-index" id="map"
+     style= "height: 600px; width: 50%;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </section>
 
 
