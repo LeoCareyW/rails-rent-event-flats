@@ -50,7 +50,7 @@ end
 private
 
 def flat_params
-  params.require(:flat).permit(:name, :address, :description, :price, :pool, :wifi, :speakers, :smoking, photos: [])
+  params.require(:flat).permit(:name, :address, :description, :price, :pool, :wifi, :speakers, :smoking, :icemaker, :cleaner, photos: [])
 end
 
 end
