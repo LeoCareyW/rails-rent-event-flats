@@ -45,7 +45,9 @@
     <div class="col-8">
       <div class="card" style="height:90%">
         <div class="card-body">
-          <h5 class="card-title"><%= @flat.name %></h5>
+          <div class="title-box">
+            <h5 class="card-title"><%= @flat.name %><%= link_to "Edit Flat", edit_flat_path(@flat), class: "ml-5 btn btn-outline-secondary btn-sm" %></h5>
+          </div>
           <h6 class="card-subtitle p-0 mb-2 text-muted" style="text-align: left;"><%= @flat.address %></h6>
           <p class="card-text"><%= @flat.description %></p>
           <!-- <a href="#" class="card-link">Card link</a>

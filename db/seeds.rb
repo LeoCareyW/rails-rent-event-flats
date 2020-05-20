@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "cleaning DB"
 
+Booking.destroy_all
 Flat.destroy_all
 User.destroy_all
 
@@ -18,21 +19,21 @@ user1 = User.create!(
   password: "123456",
   password_confirmation: "123456")
 
-newflat = Flat.new(
-  name: "Nice Party House",
-  address: "A good location",
-  description: "It's fun",
-  price: 10)
+# newflat = Flat.new(
+#   name: "Nice Party House",
+#   address: "A good location",
+#   description: "It's fun",
+#   price: 10)
 
-newbooking = Booking.new(
-  start_date: Date.today,
-  end_date: Date.tomorrow)
+# newbooking = Booking.new(
+#   start_date: Date.today,
+#   end_date: Date.tomorrow)
 
-newflat.user = user1
-newbooking.flat = newflat
-newbooking.user = user1
-newflat.save
-newbooking.save
+# newflat.user = user1
+# newbooking.flat = newflat
+# newbooking.user = user1
+# newflat.save
+# newbooking.save
 
 puts "done"
-puts newflat
+# puts newflat
