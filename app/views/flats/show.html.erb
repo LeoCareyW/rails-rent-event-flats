@@ -71,10 +71,36 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-8">
+    <div class="col-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"> Facilities </h5>
+          <div class="facilities-container">
+            <div class="facilities-boxes">
+              <% if @flat.pool == true  %>
+              <p class="card-text"> Pool <i id="true" class="fas fa-check-circle"></i></p>
+              <% else %>
+              <p class="card-text"> Pool <i class="fas fa-times-circle"></i> </p>
+              <% end %>
+              <% if @flat.wifi == true  %>
+              <p class="card-text"> Wifi <i id="true" class="fas fa-check-circle"></i></p>
+              <% else %>
+              <p class="card-text"> Wifi <i class="fas fa-times-circle"></i></p>
+              <% end %>
+            </div>
+            <div class="facilities-boxes">
+              <% if @flat.speakers == true  %>
+              <p class="card-text"> Speakers <i id="true" class="fas fa-check-circle"></i></p>
+              <% else %>
+              <p class="card-text"> Speakers <i class="fas fa-times-circle"></i></p>
+              <% end %>
+              <% if @flat.smoking == true  %>
+              <p class="card-text"> Smoking <i id="true" class="fas fa-check-circle"></i></p>
+              <% else %>
+              <p class="card-text"> Smoking <i class="fas fa-times-circle"></i></p>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

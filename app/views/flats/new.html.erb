@@ -10,10 +10,14 @@
               <%= f.input :address %>
               <%= f.input :description %>
               <%= f.input :price %>
+              <p> Pool <%= f.check_box :pool %> &nbsp&nbsp Speakers <%= f.check_box :speakers %> </p>
+              <p> Wifi  <%= f.check_box :wifi %> &nbsp&nbsp Smoking <%= f.check_box :smoking %> </p>
               <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-              <label class="small">
-                  <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
-              </label>
+              <div>
+                <!-- <label class="small">
+                    <input name="terms" type="checkbox">I have read and agree to the <a href="#">terms of service</a>
+                </label> -->
+              </div>
               <%= f.submit class: "btn btn-lg btn-primary btn-block" %>
           </div>
         <% end %>
