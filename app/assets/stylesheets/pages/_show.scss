@@ -24,3 +24,26 @@
   text-align: center;
   font-size: 11px;
 }
+
+.facilities-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: -20px;
+
+}
+
+.facilities-boxes {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.fas {
+  color: red;
+}
+
+#true {
+  color: green;
+  }
+
