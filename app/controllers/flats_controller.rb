@@ -2,9 +2,13 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
-  @flats = Flat.all
-
-    @flats = Flat.geocoded # returns flats with coordinates
+  if params[:search].present?
+    if params[:search][:query].present?
+      @flats = Flat.search_by_address(params[:search][:query]).geocoded
+    else
+      @flats = Flat.all.geocoded
+    end
+  end
 
     @markers = @flats.map do |flat|
       {
