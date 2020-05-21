@@ -133,11 +133,18 @@
            <% @flat.reviews.each do |review| %>
            <% star << review.rating.to_i %>
            <% end %>
+          <% if star.size > 0 %>
            <% final_rating = star.inject{ |sum, el| sum + el }.to_i / star.size %>
+           <% else %>
+           <% end  %>
            <div><h5 class="card-title"> Reviews
-           <% final_rating.times do  %>
-              <i id="star" class="fas fa-star"></i>
-                <% end %></h5>
+            <% if final_rating %>
+            <% final_rating.times do %>
+            <i id="star" class="fas fa-star"></i>
+            <% end %>
+            <% else %>
+            <% end %>
+                </h5>
           <p id="leave-review"> <%= link_to 'Leave a review', new_flat_review_path(@flat) %> </p></div>
           <br>
           <div>
