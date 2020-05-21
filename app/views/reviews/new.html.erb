@@ -6,7 +6,7 @@
           <div class="container">
             <%= simple_form_for [ @flat, @review ] do |f| %>
               <%= f.input :content %>
-              <%= f.input :rating %>
+              <%= f.input :rating, collection: (1..5) %>
               <%= f.submit "Submit review", class: "btn btn-primary" %>
          <% end %>
       </div>
