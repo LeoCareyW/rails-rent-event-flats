@@ -7,7 +7,6 @@
       <% number_of_days = @booking.end_date - @booking.start_date %>
       <p class="card-text"><%= "#{number_of_days.to_i} nights @ £#{@booking.flat.price} per night" %></p>
       <p class="card-text"><%= "£#{number_of_days.to_i * @booking.flat.price} total price" %></p>
-      <p> <%= link_to 'Leave a review', new_flat_review_path(@flat) %> </p>
     </div>
     <%= link_to "Back to All Bookings", bookings_path, class: "btn btn-primary" %>
   </div>
