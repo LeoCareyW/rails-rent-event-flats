@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @flat = Flat.find(params[:id])
   end
 
   def new
