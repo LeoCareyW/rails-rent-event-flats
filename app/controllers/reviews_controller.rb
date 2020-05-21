@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     # we need `restaurant_id` to associate review with corresponding restaurant
     @flat = Flat.find(params[:flat_id])
     @review.flat = @flat
+    @review.user = current_user
     if @review.save
       redirect_to flat_path(@flat)
     else
