@@ -8,6 +8,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import 'pikaday/css/pikaday.css';
+@import 'flatpickr/dist/flatpickr.css';
+
+
 
 // Your CSS partials
 @import "components/index";
@@ -21,5 +25,4 @@
 @import "components/flat-index";
 @import "components/map-index";
 @import "pages/show"
-
 

@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -34,7 +35,19 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+// import { initPikaday } from '../plugins/init_pikaday';
+import { initFlatpickr } from '../plugins/init_flatpickr';
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  flatpickr('#startdate');
+})
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
+  // initPikaday();
+  initFlatpickr();
 })
+
