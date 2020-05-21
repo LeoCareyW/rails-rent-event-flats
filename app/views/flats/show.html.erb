@@ -129,11 +129,25 @@
     <div class="col-8">
       <div class="card">
         <div class="card-body">
-          <div><h5 class="card-title"> Reviews </h5> <p id="leave-review"> <%= link_to 'Leave a review', new_flat_review_path(@flat) %> </p></div>
+            <% star = [] %>
+           <% @flat.reviews.each do |review| %>
+           <% star << review.rating.to_i %>
+           <% end %>
+           <% final_rating = star.inject{ |sum, el| sum + el }.to_i / star.size %>
+           <div><h5 class="card-title"> Reviews
+           <% final_rating.times do  %>
+              <i id="star" class="fas fa-star"></i>
+                <% end %></h5>
+          <p id="leave-review"> <%= link_to 'Leave a review', new_flat_review_path(@flat) %> </p></div>
           <br>
           <div>
               <% @flat.reviews.each do |review| %>
                 <li> - <%= review.content %></li>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% review.rating.to_i.times do  %>
+                 <i id="star" class="fas fa-star"></i>
+                <% end %>
+                <br>
                 <br>
               <% end %>
             </div>
