@@ -21,9 +21,10 @@ user1 = User.create!(
 
 # newflat = Flat.new(
 #   name: "Nice Party House",
-#   address: "A good location",
+#   address: "10 Downing Street, SW1A 2AB",
 #   description: "It's fun",
-#   price: 10)
+#   price: 10
+# )
 
 # newbooking = Booking.new(
 #   start_date: Date.today,
