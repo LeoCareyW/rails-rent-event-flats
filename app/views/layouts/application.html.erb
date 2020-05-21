@@ -14,10 +14,10 @@
     <p class="alert"><%= alert %></p>
 
   <body>
-
+   <div class="total-navbar">
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to root_path do  %>
-          <img class="navbar-brand" src="https://cdn.pixabay.com/photo/2014/04/02/10/20/happy-birthday-303540_1280.png" />
+          <img class="navbar-brand" src="https://image.shutterstock.com/image-vector/house-logo-template-design-vector-260nw-741515455.jpg" />
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,11 @@
             <a class="nav-link" href="/bookings">My Bookings</a>
           </li>
           <li class="nav-item dropdown">
+            <% if user_signed_in?  %>
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i1.sndcdn.com/artworks-000524215752-qk19wd-t500x500.jpg" />
+            <% else %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://lh3.googleusercontent.com/proxy/v4a-aWvCkuOUR4CQ7soGkfdpaAoaxC07HZg6Vu3X77AF0mbC64OYrV2kNbiFGwD56PrPSnHW5OgpEd1yaprR9L_qJBvRMjmuzbauo7XaWpyVfKMLp11QLp3dPThmYCJ9BcEx" />
+            <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
@@ -48,6 +52,7 @@
         </ul>
       </div>
     </div>
+  </div>
     <%= yield %>
     <div class="footer">
       <div class="footer-links">
