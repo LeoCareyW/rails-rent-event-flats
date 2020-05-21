@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_134123) do
     t.boolean "wifi"
     t.boolean "speakers"
     t.boolean "smoking"
+    t.float "latitude"
+    t.float "longitude"
     t.boolean "cleaner"
     t.boolean "icemaker"
     t.index ["user_id"], name: "index_flats_on_user_id"

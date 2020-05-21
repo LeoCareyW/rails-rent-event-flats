@@ -8,6 +8,7 @@
   flex-direction: row;
 }
 
+
 .card-product img {
   height: 100%;
   width: 120px;
@@ -21,11 +22,15 @@
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-product-price {
+ font-weight: bold;
 }
 
 .card-product .card-product-infos {

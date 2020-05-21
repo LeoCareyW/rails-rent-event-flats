@@ -65,8 +65,8 @@
         <div class="card-body">
           <h5 class="card-title">Booking</h5>
           <%= simple_form_for([@flat, Booking.new]) do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :start_date, input_html: { id: "startdate" }, as: :string, autocomplete: 'off' %>
+            <%= f.input :end_date, input_html: { id: "enddate" }, as: :string, autocomplete: 'off' %>
             <h6 class="card-subtitle mb-2 text-muted">
             $<%= @flat.price %> per night
             </h6>

@@ -17,6 +17,7 @@
         <div class="card-product-infos">
           <h5><%= link_to "#{flat.name}", flat_path(flat)%></h5>
           <p><%= flat.description %></p>
+          <p class="card-product-price">£<%= flat.price %> per night</p>
         </div>
       </div>
     <% end %>
