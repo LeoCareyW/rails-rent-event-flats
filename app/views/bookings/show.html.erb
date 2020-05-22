@@ -8,6 +8,7 @@
       <p class="card-text"><%= "#{number_of_days.to_i} nights @ £#{@booking.flat.price} per night" %></p>
       <p class="card-text"><%= "£#{number_of_days.to_i * @booking.flat.price} total price" %></p>
     </div>
+    <%= link_to "Back to #{@booking.flat.name}", flat_path(@booking.flat), class: "btn btn-info" %>
     <%= link_to "Back to All Bookings", bookings_path, class: "btn btn-primary" %>
     <%= link_to "Delete Booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
       <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/restaurants/2"></a>
