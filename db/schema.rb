@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_170508) do
     t.boolean "wifi"
     t.boolean "speakers"
     t.boolean "smoking"
+    t.float "latitude"
+    t.float "longitude"
     t.boolean "cleaner"
     t.boolean "icemaker"
     t.index ["user_id"], name: "index_flats_on_user_id"
@@ -86,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_170508) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

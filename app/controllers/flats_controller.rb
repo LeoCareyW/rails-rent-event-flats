@@ -37,6 +37,7 @@ end
 
 def show
   @flat = Flat.find(params[:id])
+  @review = Review.new
 end
 
 def edit

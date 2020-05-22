@@ -59,6 +59,10 @@ p {
   }
 }
 
+h3 {
+  text-align: left;
+}
+
 #reviewer {
   font-style: italic;
   font-size: 12px;
@@ -77,3 +81,20 @@ p {
   color: orange;
   font-size: 16px;
 }
+
+.costs {
+  display: none;
+}
+
+#leave-review {
+  margin-top: 25px;
+}
+
+#review-card-body {
+  vertical-align: left;
+  display: flex;
+  justify-content: left;
+}
+
+
+

@@ -70,6 +70,22 @@
             <h6 class="card-subtitle mb-2 text-muted">
             $<%= @flat.price %> per night
             </h6>
+            <div class="costs costs-hidden" data-rate="<%= @flat.price.to_json %>">
+              <table class="table">
+                <tr>
+                  <td>€<%= @flat.price %> x <span id="days">0</span> days</td>
+                  <td class="text-right">€<span id="price">0</span></td>
+                </tr>
+                <tr>
+                  <td>Service fee</td>
+                  <td class="text-right">€<span id="service-fee">0</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td class="text-right">€<span id=total-price>0</span></td>
+                </tr>
+              </table>
+            </div>
             <h6> <%= f.submit class: "btn btn-primary mb-2 mx-auto"%> </h6>
           <% end %>
           <p id="charged" class="card-subtitle mb-2 text-muted">(You won't be charged yet)</p>
@@ -129,27 +145,39 @@
     <div class="col-8">
       <div class="card">
         <div class="card-body">
-            <% star = [] %>
-           <% @flat.reviews.each do |review| %>
-           <% star << review.rating.to_i %>
-           <% end %>
-          <% if star.size > 0 %>
-            <% final_rating = star.inject{ |sum, el| sum + el }.to_i / star.size %>
-          <% else %>
-          <% end  %>
-           <div><h5 class="card-title"> Reviews
-            <% if final_rating %>
-            <% final_rating.times do %>
-            <i id="star" class="fas fa-star"></i>
-            <% end %>
-            <% else %>
-            <% end %>
+         <% if @flat.reviews.any? %>
+           <% star = [] %>
+             <% @flat.reviews.each do |review| %>
+             <% star << review.rating %>
+             <% end %>
+               <% if star.size > 0 %>
+                 <% final_rating = star.inject{ |sum, el| sum + el }.to_f / star.size %>
+               <% else %>
+               <% end  %>
+             <div><h5 class="card-title"> Reviews
+                  <% if final_rating %>
+                    <% final_rating.to_i.times do %>
+                  <i id="star" class="fas fa-star"></i>
+                  <% end %>
+                    <% if final_rating % 2 == 0 %>
+                      <i></i>
+                    <% elsif final_rating % 2 == 1  %>
+                      <i></i>
+                    <% else %>
+                    <i id="star" class="fas fa-star-half"></i>
+                    <% end %>
+                  <% else %>
+                  <% end %>
                 </h5>
-          <p id="leave-review"> <%= link_to 'Leave a review', new_flat_review_path(@flat) %> </p></div>
+          <p id="leave-review"> <%= link_to 'Leave a review', flat_path(@flat, anchor: "reviewnew-") %> </p></div>
           <br>
+          <% else %>
+            <div><h5 class="card-title"> No reviews yet
+            <p id="leave-review"> <%= link_to 'Be the first to leave a review', flat_path(@flat, anchor: "reviewnew-") %> </p></div>
+          <% end  %>
           <div>
               <% @flat.reviews.each do |review| %>
-                <li> - <%= review.content %></li>
+                <p id="review-<%= review.id %>"> - <%= review.content %></p>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <% review.rating.to_i.times do  %>
                  <i id="star" class="fas fa-star"></i>
@@ -164,10 +192,28 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
-</div>
+        </div>
+          </div>
+            </div>
+              <div class="row" id="leave-review">
+                <div class="col-md-8 mx-left">
+                  <div class="card card-body">
+                    <h5 class="mb-4" id="reviewnew-"> &nbsp; Leave a review of <%=@flat.name %>!</h5>
+                    <div class="container">
+                      <%= simple_form_for [ @flat, @review ], remote: true do |f| %>
+                      <%= f.input :content, :label => "How was your stay, #{current_user.name}?" %>
+                      <%= f.input :rating, collection: (1..5) %>
+                      <%= f.submit "Submit review", class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
 
 
