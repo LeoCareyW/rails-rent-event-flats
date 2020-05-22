@@ -12,9 +12,9 @@ class ReviewsController < ApplicationController
     @review.flat = @flat
     @review.user = current_user
     if @review.save
-      redirect_to flat_path(@flat)
+      redirect_to flat_path(@flat, anchor: "review-#{@review.id}")
     else
-      render :new
+      render 'flats/show'
     end
   end
 
