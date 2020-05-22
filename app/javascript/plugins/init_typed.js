@@ -5,7 +5,7 @@ const initTyped = () => {
   console.log(element)
   if (element) {
     new Typed('#js-typed-text', {
-      strings: ["Flat", "House", "Party House..."],
+      strings: ["flat", "house", "party house"],
       typeSpeed: 100,
       loop: true
     });

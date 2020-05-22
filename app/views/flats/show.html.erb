@@ -68,21 +68,21 @@
             <%= f.input :start_date, input_html: { id: "startdate" }, as: :string, autocomplete: 'off' %>
             <%= f.input :end_date, input_html: { id: "enddate" }, as: :string, autocomplete: 'off' %>
             <h6 class="card-subtitle mb-2 text-muted">
-            $<%= @flat.price %> per night
+            £<%= @flat.price %> per night
             </h6>
             <div class="costs costs-hidden" data-rate="<%= @flat.price.to_json %>">
               <table class="table">
                 <tr>
-                  <td>€<%= @flat.price %> x <span id="days">0</span> days</td>
-                  <td class="text-right">€<span id="price">0</span></td>
+                  <td>£<%= @flat.price %> x <span id="days">0</span> days</td>
+                  <td class="text-right">£<span id="price">0</span></td>
                 </tr>
                 <tr>
                   <td>Service fee</td>
-                  <td class="text-right">€<span id="service-fee">0</span></td>
+                  <td class="text-right">£<span id="service-fee">0</span></td>
                 </tr>
                 <tr>
                   <td><strong>Total</strong></td>
-                  <td class="text-right">€<span id=total-price>0</span></td>
+                  <td class="text-right">£<span id=total-price>0</span></td>
                 </tr>
               </table>
             </div>
@@ -196,9 +196,9 @@
       </div>
     </div>
   </div>
-        </div>
-          </div>
-            </div>
+        <div>
+          <div>
+            <div>
               <div class="row" id="leave-review">
                 <div class="col-md-8 mx-left">
                   <div class="card card-body">
@@ -213,6 +213,9 @@
                 </div>
               </div>
             </div>
+          </div>
+         </div>
+      </div>
 
 
 
