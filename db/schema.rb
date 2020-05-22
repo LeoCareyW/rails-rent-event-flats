@@ -55,8 +55,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_170508) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
-    t.float "longitude"
     t.boolean "pool"
     t.boolean "wifi"
     t.boolean "speakers"
