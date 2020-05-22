@@ -129,7 +129,8 @@
     <div class="col-8">
       <div class="card">
         <div class="card-body">
-            <% star = [] %>
+         <% if @flat.reviews.any? %>
+           <% star = [] %>
            <% @flat.reviews.each do |review| %>
            <% star << review.rating.to_i %>
            <% end %>
@@ -145,11 +146,15 @@
             <% else %>
             <% end %>
                 </h5>
-          <p id="leave-review"> <%= link_to 'Leave a review', new_flat_review_path(@flat) %> </p></div>
+          <p id="leave-review"> <%= link_to 'Leave a review', flat_path(@flat, anchor: "reviewnew-") %> </p></div>
           <br>
+          <% else %>
+            <div><h5 class="card-title"> No reviews yet
+            <p id="leave-review"> <%= link_to 'Be the first to leave a review', flat_path(@flat, anchor: "reviewnew-") %> </p></div>
+          <% end  %>
           <div>
               <% @flat.reviews.each do |review| %>
-                <li> - <%= review.content %></li>
+                <p id="review-<%= review.id %>"> - <%= review.content %></p>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <% review.rating.to_i.times do  %>
                  <i id="star" class="fas fa-star"></i>
@@ -164,10 +169,23 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
+          </div>
+            </div>
+              <div class="row" id="leave-review">
+                <div class="col-md-8 mx-left">
+                  <div class="card card-body">
+                    <h5 class="mb-4" id="reviewnew-"> &nbsp; Leave a review of <%=@flat.name %>!</h5>
+                    <div class="container">
+                      <%= simple_form_for [ @flat, @review ], remote: true do |f| %>
+                      <%= f.input :content, :label => "How was your stay, #{current_user.name}?" %>
+                      <%= f.input :rating, collection: (1..5) %>
+                      <%= f.submit "Submit review", class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 
