@@ -2,15 +2,16 @@
   <div class="card" style="width: 18rem;">
     <%= cl_image_tag @booking.flat.photos[0].key, crop: :fill, class: "card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title"><%= "Your booking at #{@booking.flat.name}" %></h5>
-      <p class="card-text"><%= "#{@booking.start_date.to_formatted_s(:short)} - #{@booking.end_date.to_formatted_s(:short)}" %></p>
+      <h5 class="card-title p-2" style="font-size: 20px; font-weight: bold; text-align: center;"><%= "Your booking at #{@booking.flat.name}" %></h5>
+      <p class="card-text" style="text-align: center"><%= "#{@booking.start_date.to_formatted_s(:short)} - #{@booking.end_date.to_formatted_s(:short)}" %></p>
       <% number_of_days = @booking.end_date - @booking.start_date %>
-      <p class="card-text"><%= "#{number_of_days.to_i} nights @ £#{@booking.flat.price} per night" %></p>
-      <p class="card-text"><%= "£#{number_of_days.to_i * @booking.flat.price} total price" %></p>
+      <p class="card-text" style="text-align: center"><%= "#{number_of_days.to_i} nights @ £#{@booking.flat.price} per night" %></p>
+      <p class="card-text" style="text-align: center"><%= "£#{number_of_days.to_i * @booking.flat.price} total price (exc service)" %></p>
     </div>
-    <%= link_to "Back to #{@booking.flat.name}", flat_path(@booking.flat), class: "btn btn-info" %>
-    <%= link_to "Back to All Bookings", bookings_path, class: "btn btn-primary" %>
-    <%= link_to "Delete Booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-      <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/restaurants/2"></a>
-  </div>
+      <%= link_to "Back to #{@booking.flat.name}", flat_path(@booking.flat), class: "btn btn-outline-secondary my-2 mx-4" %>
+      <%= link_to "Back to All Bookings", bookings_path, class: "btn btn-outline-primary my-2 mx-4" %>
+      <%= link_to "Delete Booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger my-2 mx-4" %>
+        <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/restaurants/2"></a>
+    </div>
+
 </div>
