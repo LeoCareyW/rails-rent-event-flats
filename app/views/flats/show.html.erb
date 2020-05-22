@@ -134,9 +134,9 @@
            <% star << review.rating.to_i %>
            <% end %>
           <% if star.size > 0 %>
-           <% final_rating = star.inject{ |sum, el| sum + el }.to_i / star.size %>
-           <% else %>
-           <% end  %>
+            <% final_rating = star.inject{ |sum, el| sum + el }.to_i / star.size %>
+          <% else %>
+          <% end  %>
            <div><h5 class="card-title"> Reviews
             <% if final_rating %>
             <% final_rating.times do %>
@@ -154,6 +154,10 @@
                 <% review.rating.to_i.times do  %>
                  <i id="star" class="fas fa-star"></i>
                 <% end %>
+                <% if review.user.name  %>
+                  <p id="reviewer"><%= review.user.name %><p>
+                  <% else %>
+                <% end  %>
                 <br>
                 <br>
               <% end %>
