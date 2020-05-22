@@ -29,25 +29,23 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
-
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 // import { initPikaday } from '../plugins/init_pikaday';
 import { initFlatpickr } from '../plugins/init_flatpickr';
+import { initTyped } from '../plugins/init_typed';
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
   flatpickr('#startdate');
-})
+});
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
-  // initPikaday();
+  initTyped();
   initFlatpickr();
-})
+  // initTyped();
+});
 

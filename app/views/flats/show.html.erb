@@ -70,6 +70,22 @@
             <h6 class="card-subtitle mb-2 text-muted">
             $<%= @flat.price %> per night
             </h6>
+            <div class="costs costs-hidden" data-rate="<%= @flat.price.to_json %>">
+              <table class="table">
+                <tr>
+                  <td>€<%= @flat.price %> x <span id="days">0</span> days</td>
+                  <td class="text-right">€<span id="price">0</span></td>
+                </tr>
+                <tr>
+                  <td>Service fee</td>
+                  <td class="text-right">€<span id="service-fee">0</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td class="text-right">€<span id=total-price>0</span></td>
+                </tr>
+              </table>
+            </div>
             <h6> <%= f.submit class: "btn btn-primary mb-2 mx-auto"%> </h6>
           <% end %>
           <p id="charged" class="card-subtitle mb-2 text-muted">(You won't be charged yet)</p>
@@ -167,7 +183,6 @@
       </div>
     </div>
   </div>
-</div>
 
 
 
