@@ -55,16 +55,14 @@ ActiveRecord::Schema.define(version: 2020_05_21_134123) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.boolean "pool"
     t.boolean "wifi"
     t.boolean "speakers"
     t.boolean "smoking"
-    t.float "latitude"
-    t.float "longitude"
     t.boolean "cleaner"
     t.boolean "icemaker"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
@@ -73,7 +71,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_134123) do
     t.bigint "flat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "reviews"
     t.integer "rating"
     t.index ["flat_id"], name: "index_reviews_on_flat_id"
   end
